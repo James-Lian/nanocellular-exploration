@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Nanobot.gd" type="Script" id=1]
+[ext_resource path="res://Nanobot_Light.png" type="Texture" id=2]
+[ext_resource path="res://Nanobot.png" type="Texture" id=3]
+[ext_resource path="res://glowing_circle.png" type="Texture" id=4]
+
+[sub_resource type="Gradient" id=5]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
+
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.4 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+flag_disable_z = true
+spread = 30.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 200.0
+initial_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.5
+scale_curve = SubResource( 8 )
+color_ramp = SubResource( 6 )
+
+[sub_resource type="Environment" id=4]
+background_mode = 4
+background_color = Color( 0, 0.905882, 1, 1 )
+glow_enabled = true
+glow_levels/1 = true
+glow_levels/2 = true
+glow_levels/4 = true
+glow_levels/6 = true
+glow_levels/7 = true
+glow_intensity = 1.0
+glow_blend_mode = 0
+glow_hdr_threshold = 1.8
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 13.0
+height = 4.0
+
+[node name="Nanobot" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+modulate = Color( 1, 1, 1, 0.501961 )
+position = Vector2( 0, 20 )
+rotation = 1.5708
+scale = Vector2( 0.25, 0.25 )
+amount = 20
+lifetime = 0.5
+local_coords = false
+process_material = SubResource( 9 )
+texture = ExtResource( 4 )
+
+[node name="Node2D" type="Node2D" parent="."]
+scale = Vector2( 0.1, 0.1 )
+
+[node name="NanobotLight" type="Sprite" parent="Node2D"]
+modulate = Color( 1, 1.3, 1.4, 1 )
+texture = ExtResource( 2 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Node2D"]
+environment = SubResource( 4 )
+
+[node name="Nanobot" type="Sprite" parent="."]
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 3 )

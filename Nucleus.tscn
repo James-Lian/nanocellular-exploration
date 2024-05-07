@@ -1,0 +1,1410 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Nucleolus.png" type="Texture" id=1]
+[ext_resource path="res://Nanobot.tscn" type="PackedScene" id=2]
+[ext_resource path="res://DNA.png" type="Texture" id=3]
+[ext_resource path="res://Nucleus.gd" type="Script" id=4]
+[ext_resource path="res://White Circle.png" type="Texture" id=5]
+[ext_resource path="res://Membrane_Collision.png" type="Texture" id=6]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -33, 1794, 0, 0, 0, 0, -147, 1485, 0, 0, 0, 0, -168, 1148, 0, 0, 0, 0, -134, 785, 0, 0, 0, 0, -6, 550, 0, 0, 0, 0, 175, 139, 0, 0, 0, 0, 364, -251, 0, 0, 0, 0, 660, -702, 0, 0, 0, 0, 1070, -836, 0, 0, 0, 0, 1319, -668, 0, 0, 0, 0, 1736, -439, 0, 0, 0, 0, 1931, -83, 0, 0, 0, 0, 1972, 368, 0, 0, 0, 0, 1803, 1054, 0, 0, 0, 0, 1642, 1444, 0, 0, 0, 0, 1205, 1693, 0, 0, 0, 0, 949, 1545, 0, 0, 0, 0, 754, 1094, 0, 0, 0, 0, 835, 953, 0, 0, 0, 0, 1037, 664, 0, 0, 0, 0, 1137, 422, 0, 0, 0, 0, 942, 355, 0, 0, 0, 0, 821, 536, 0, 0, 0, 0, 848, 617, 0, 0, 0, 0, 942, 671, 0, 0, 0, 0, 1137, 718, 0, 0, 0, 0, 1272, 597, 0, 0, 0, 0, 1279, 449, 0, 0, 0, 0, 1151, 146, 0, 0, 0, 0, 767, 112, 0, 0, 0, 0, 418, 301, 0, 0, 0, 0, -53, 375, 0, 0, 0, 0, -585, 402, 0, 0, 0, 0, -874, 153, 0, 0, 0, 0, -867, -190, 0, 0, 0, 0, -726, -406, 0, 0, 0, 0, -457, -621, 0, 0, 0, 0, -201, -816, 0, 0, 0, 0, -67, -1132, 0, 0, 0, 0, -33, -1401, 0, 0, 0, 0, -33, -1576, 0, 0, 0, 0, -53, -1819 )
+}
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "normal",
+"speed": 5.0
+} ]
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -1251, 1645, 0, 0, 0, 0, -605, 1282, 0, 0, 0, 0, -73, 1268, 0, 0, 0, 0, 283, 1376, 0, 0, 0, 0, 371, 1658, 0, 0, 0, 0, 75, 1692, 0, 0, 0, 0, 75, 1342, 0, 0, 0, 0, 68, 972, 0, 0, 0, 0, -174, 744, 0, 0, 0, 0, -773, 481, 0, 0, 0, 0, -605, 690, 0, 0, 0, 0, -255, 824, 0, 0, 0, 0, 357, 791, 0, 0, 0, 0, 593, 609, 0, 0, 0, 0, 155, 152, 0, 0, 0, 0, -450, 4, 0, 0, 0, 0, -800, -64, 0, 0, 0, 0, -1190, -259, 0, 0, 0, 0, -1728, -804 )
+}
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "normal",
+"speed": 5.0
+} ]
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -1103, -952, 0, 0, 0, 0, -867, -992, 0, 0, 0, 0, -591, -905, 0, 0, 0, 0, -396, -757, 0, 0, 0, 0, -161, -474, 0, 0, 0, 0, 54, 98, 0, 0, 0, 0, 236, 670, 0, 0, 0, 0, 135, -144, 0, 0, 0, 0, 202, -286, 0, 0, 0, 0, 256, -461, 0, 0, 0, 0, 391, -615, 0, 0, 0, 0, 498, -851, 0, 0, 0, 0, 364, -1053, 0, 0, 0, 0, 149, -1147, 0, 0, 0, 0, 14, -972, 0, 0, 0, 0, 128, -777, 0, 0, 0, 0, 350, -757, 0, 0, 0, 0, 700, -891, 0, 0, 0, 0, 1077, -1174, 0, 0, 0, 0, 1575, -1187, 0, 0, 0, 0, 1904, -1053 )
+}
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "normal",
+"speed": 5.0
+} ]
+
+[node name="Nucleus" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="BG" type="CanvasLayer" parent="."]
+layer = -2
+
+[node name="WhiteCircle" type="Sprite" parent="BG"]
+modulate = Color( 0.533333, 0.419608, 0.403922, 1 )
+position = Vector2( 2, 55 )
+scale = Vector2( 7, 7 )
+texture = ExtResource( 5 )
+
+[node name="Membrane" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Membrane"]
+scale = Vector2( 1.7, 1.7 )
+polygon = PoolVector2Array( -9, -1642.1, -6, -1640.1, -6, -1551, -7.59998, -1551, -9.59998, -1546, -17.9, -1546, -150, -1539.1, -150, -1538.2, -269, -1523.2, -269, -1522.4, -397, -1495.3, -397, -1494.5, -497, -1465.5, -497, -1464.6, -621, -1417.6, -621, -1416.7, -736, -1361.7, -736, -1360.9, -844, -1297.9, -844, -1297, -947, -1225, -947, -1224, -1019, -1166, -1019, -1165.1, -1110, -1080.1, -1110, -1078.2, -1181, -1002.1, -1181, -1000.3, -1252, -912.2, -1252, -910.4, -1301, -841.4, -1301, -839.4, -1359, -744.5, -1359, -742.5, -1401, -662.5, -1401, -659.6, -1448, -552.7, -1448, -549.7, -1481, -457.6, -1481, -453.7, -1509, -355, -1509, -349.8, -1533, -229.6, -1533, -222.9, -1546, -112.8, -1546, -97, -1549.9, 17, -1549.1, 17, -1546.1, 114, -1545.2, 114, -1533.2, 232, -1532.3, 232, -1512.3, 344, -1511.4, 344, -1489.5, 433, -1488.6, 433, -1448.6, 555, -1447.7, 555, -1408.6, 650, -1407.8, 650, -1359.7, 747, -1358.9, 747, -1299.9, 847, -1299, 847, -1232, 943, -1231, 943, -1163, 1027, -1162.1, 1027, -1084.1, 1110, -1082.2, 1110, -1020.2, 1169, -1018.3, 1169, -931.3, 1241, -929.3, 1241, -875.3, 1281, -873.4, 1281, -778.4, 1342, -776.5, 1342, -720.5, 1374, -718.5, 1374, -622.5, 1421, -619.6, 1421, -532.7, 1457, -529.7, 1457, -434.7, 1489, -430.7, 1489, -345.9, 1512, -340.8, 1512, -264.6, 1528, -257.9, 1528, -161.7, 1542, -151.9, 1542, -60.8, 1549, 55, 1549, 55, 1548.1, 146, 1543.1, 146, 1542.2, 234, 1532.2, 234, 1531.3, 317, 1517.3, 317, 1516.4, 404, 1496.5, 404, 1495.5, 493, 1469.5, 493, 1468.6, 559, 1445.6, 559, 1444.7, 661, 1401.7, 661, 1400.8, 734, 1364.7, 734, 1363.8, 829, 1308.9, 829, 1307.9, 900, 1260.9, 900, 1260, 988, 1193, 988, 1192.1, 1057, 1132.1, 1057, 1131.2, 1127, 1062.2, 1127, 1060.2, 1188, 993.2, 1188, 991.3, 1256, 905.3, 1256, 903.4, 1304, 834.5, 1304, 832.4, 1361, 737.5, 1361, 735.5, 1404, 651.5, 1404, 648.6, 1439, 569.7, 1439, 566.6, 1466, 495.6, 1466, 491.7, 1495, 398.7, 1495, 394.8, 1518, 298, 1518, 291.8, 1533, 204.7, 1533, 196.9, 1542, 116.8, 1542, 101, 1546, 19, 1546, -16, 1538.1, -156, 1537.2, -156, 1529.2, -228, 1528.3, -228, 1513.3, -317, 1512.4, -317, 1492.5, -404, 1491.5, -404, 1465.5, -493, 1464.6, -493, 1441.6, -559, 1440.7, -559, 1397.7, -661, 1396.8, -661, 1360.7, -734, 1359.9, -734, 1295.9, -843, 1294.9, -843, 1256.9, -900, 1256, -900, 1198, -977, 1197.1, -977, 1151.1, -1032, 1150.1, -1032, 1080.1, -1106, 1078.2, -1106, 1024.2, -1158, 1022.3, -1158, 953.3, -1217, 951.3, -1217, 894.3, -1261, 892.4, -1261, 806.3, -1319, 804.5, -1319, 716.5, -1370, 714.5, -1370, 618.5, -1417, 615.6, -1417, 528.7, -1453, 525.7, -1453, 416.7, -1489, 412.7, -1489, 318.9, -1513, 313.8, -1513, 200.7, -1533, 192.9, -1533, 111.8, -1542, 97, -1542, -3, -1546, -3, -1644, 35.1, -1644, 173, -1635.9, 173, -1634.8, 215, -1630.8, 215, -1629.7, 330, -1611.7, 330, -1610.7, 409, -1593.6, 409, -1592.5, 490, -1570.5, 490, -1569.4, 561, -1546.5, 561, -1545.4, 654, -1509.4, 654, -1508.3, 707, -1485.3, 707, -1484.2, 789, -1443.2, 789, -1442.1, 858, -1403.2, 858, -1402.1, 953, -1340.1, 953, -1339, 1012, -1296, 1012, -1295, 1074, -1245, 1074, -1243.9, 1129, -1194.9, 1129, -1193.8, 1195, -1128.8, 1195, -1126.9, 1245, -1073.8, 1245, -1071.7, 1296, -1011.7, 1296, -1009.7, 1335, -959.7, 1335, -957.5, 1384, -887.6, 1384, -885.6, 1422, -825.6, 1422, -823.5, 1459, -758.5, 1459, -756.5, 1486, -704.5, 1486, -701.4, 1530, -603.4, 1530, -600.4, 1574, -476.3, 1574, -472.3, 1595, -400.3, 1595, -395.4, 1618, -293.2, 1618, -286, 1630, -214.2, 1630, -206, 1639, -128.1, 1639, -112, 1643, 36, 1641.9, 36, 1635.9, 162, 1634.8, 162, 1618.8, 286, 1617.7, 286, 1592.6, 408, 1591.5, 408, 1569.5, 489, 1568.4, 489, 1530.4, 600, 1529.3, 600, 1484.3, 706, 1483.2, 706, 1421.2, 825, 1420.1, 825, 1358.1, 925, 1357, 925, 1291, 1016, 1289.9, 1016, 1209.9, 1111, 1208.8, 1111, 1109.8, 1211, 1107.9, 1211, 1072.8, 1244, 1070.7, 1244, 1010.7, 1295, 1008.7, 1295, 924.7, 1358, 922.6, 1358, 819.6, 1424, 817.5, 1424, 703.5, 1485, 700.3, 1485, 594.4, 1532, 591.4, 1532, 485.3, 1570, 481.1, 1570, 364.3, 1602, 359.4, 1602, 247.2, 1624, 240.2, 1624, 127.1, 1638, 111, 1638, -37, 1642, -37, 1640.9, -129, 1637.9, -129, 1636.8, -215, 1628.8, -215, 1627.7, -339, 1607.7, -339, 1606.6, -438, 1583.6, -438, 1582.5, -561, 1544.5, -561, 1543.4, -661, 1504.4, -661, 1503.3, -707, 1483.3, -707, 1482.2, -789, 1441.2, -789, 1440.1, -888, 1382.1, -888, 1381.1, -986, 1314.1, -986, 1313, -1074, 1243, -1074, 1241.9, -1169, 1153.9, -1169, 1151.8, -1245, 1071.8, -1245, 1069.7, -1313, 987.7, -1313, 985.6, -1373, 902.6, -1373, 900.7, -1400, 860.6, -1400, 858.5, -1443, 786.6, -1443, 784.5, -1486, 702.5, -1486, 699.5, -1510, 649.5, -1510, 646.3, -1545, 561.4, -1545, 558.3, -1576, 467.3, -1576, 462.3, -1592, 410.3, -1592, 406, -1611, 327.2, -1611, 322.3, -1630, 212.2, -1630, 204, -1640, 110.1, -1640, 90, -1643, -38, -1641.9, -38, -1637.9, -142, -1636.8, -142, -1630.8, -208, -1629.8, -208, -1618.7, -288, -1617.7, -288, -1593.6, -406, -1592.5, -406, -1569.5, -491, -1568.4, -491, -1526.4, -612, -1525.3, -612, -1484.3, -708, -1483.2, -708, -1421.2, -827, -1420.1, -827, -1358.1, -927, -1357, -927, -1291, -1018, -1289.9, -1018, -1209.9, -1113, -1208.8, -1113, -1109.8, -1213, -1107.7, -1213, -1015.7, -1293, -1013.7, -1293, -924.7, -1360, -922.6, -1360, -819.6, -1426, -817.5, -1426, -703.5, -1487, -700.3, -1487, -594.4, -1534, -591.4, -1534, -485.3, -1572, -481.3, -1572, -399.3, -1596, -394.4, -1596, -292.2, -1619, -285.3, -1619, -161.1, -1637, -150.1, -1637, -37, -1642.9, -37, -1644, -9, -1644 )
+
+[node name="MembraneCollision" type="Sprite" parent="."]
+scale = Vector2( 1.7, 1.7 )
+texture = ExtResource( 6 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = -1
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.3, 0.3 )
+
+[node name="Nucleolus" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 1 )
+
+[node name="Nanobot" parent="." instance=ExtResource( 2 )]
+z_index = 2
+
+[node name="Camera2D" type="Camera2D" parent="Nanobot"]
+current = true
+
+[node name="Strand1" type="Path2D" parent="."]
+position = Vector2( -537, -419 )
+curve = SubResource( 1 )
+
+[node name="DNA" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( -57, -1818 )
+rotation = 1.4911
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA2" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( -40, -1619 )
+rotation = 1.54754
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA3" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( -57, -1222 )
+rotation = 1.87051
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA4" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( -35, -1423 )
+rotation = 1.68932
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA5" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( -114, -1034 )
+rotation = 1.96393
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA6" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( -193, -852 )
+rotation = 2.3677
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA7" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( -335, -714 )
+rotation = 2.49885
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA8" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( -495, -593 )
+rotation = 2.51794
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA9" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( -655, -475 )
+rotation = 2.28868
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA10" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( -785, -324 )
+rotation = 2.13143
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA11" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( -888, -156 )
+rotation = 1.45573
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA12" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( -861, 43 )
+rotation = 1.22004
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA13" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( -787, 230 )
+rotation = 0.749647
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA14" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( -638, 361 )
+rotation = 0.122153
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA15" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( -439, 385 )
+rotation = -0.0440989
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA16" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( -240, 377 )
+rotation = -0.0362409
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA17" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( -38, 367 )
+rotation = -0.0362409
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA18" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 161, 356 )
+rotation = -0.184889
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA19" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 358, 317 )
+rotation = -0.389354
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA20" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 544, 243 )
+rotation = -0.487759
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA21" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 720, 146 )
+rotation = -0.0976307
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA22" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 922, 126 )
+rotation = 0.107947
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA23" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 1119, 149 )
+rotation = 1.04205
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA24" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 1221, 327 )
+rotation = 1.34987
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA25" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 1263, 521 )
+rotation = 2.11271
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA26" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 1168, 697 )
+rotation = 3.38026
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA27" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 979, 652 )
+rotation = 3.83996
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA28" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 827, 524 )
+rotation = 5.17961
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA29" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 913, 350 )
+rotation = 6.53068
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA30" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 1110, 398 )
+rotation = 8.11599
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA31" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 1060, 585 )
+rotation = 8.36264
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA32" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 965, 758 )
+rotation = 8.44547
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA33" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 857, 920 )
+rotation = 8.44547
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA34" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 752, 1083 )
+rotation = 7.48007
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA35" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 828, 1267 )
+rotation = 7.48007
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA36" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 904, 1459 )
+rotation = 7.48007
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA37" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 978, 1645 )
+rotation = 6.45928
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA38" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 1175, 1681 )
+rotation = 5.88677
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA39" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 1364, 1600 )
+rotation = 5.76927
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA40" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 1530, 1500 )
+rotation = 5.76927
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA41" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 1703, 1399 )
+rotation = 5.105
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA42" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 1781, 1210 )
+rotation = 5.00648
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA43" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 1836, 1018 )
+rotation = 4.99809
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA44" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 1893, 823 )
+rotation = 4.86737
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA45" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 1926, 633 )
+rotation = 4.8725
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA46" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 1956, 432 )
+rotation = 4.75197
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA47" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 1967, 236 )
+rotation = 4.59812
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA48" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 1946, 37 )
+rotation = 4.46263
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA49" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 1895, -160 )
+rotation = 4.19919
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA50" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 1797, -330 )
+rotation = 3.98198
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA51" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 1667, -476 )
+rotation = 3.67096
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA52" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 1487, -572 )
+rotation = 3.694
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA53" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 1315, -681 )
+rotation = 3.694
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA54" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 1145, -782 )
+rotation = 3.23504
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA55" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 948, -798 )
+rotation = 2.8465
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA56" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 754, -731 )
+rotation = 2.5179
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA57" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 593, -611 )
+rotation = 2.1471
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA58" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 483, -443 )
+rotation = 2.1471
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA59" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 378, -277 )
+rotation = 2.06433
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA60" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 284, -99.9999 )
+rotation = 1.98923
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA61" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 200, 80 )
+rotation = 1.98923
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA62" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 122, 260 )
+rotation = 1.98923
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA63" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( 43, 441 )
+rotation = 1.98923
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA64" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( -36, 624 )
+rotation = 1.98923
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA65" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( -114, 804 )
+rotation = 1.78187
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA66" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( -151, 999 )
+rotation = 1.67041
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA67" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( -169, 1200 )
+rotation = 1.51501
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA68" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( -151, 1402 )
+rotation = 1.37799
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA69" type="AnimatedSprite" parent="Strand1"]
+position = Vector2( -105, 1591 )
+rotation = 1.22779
+frames = SubResource( 4 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="Strand4" type="Path2D" parent="."]
+position = Vector2( 937, 1494 )
+rotation = 2.15904
+curve = SubResource( 3 )
+
+[node name="DNA" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( -1728, -799 )
+rotation = 0.774989
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA2" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( -1583, -658 )
+rotation = 0.808267
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA3" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( -1445, -518 )
+rotation = 0.808267
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA4" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( -1307, -374 )
+rotation = 0.73694
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA5" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( -1157, -242 )
+rotation = 0.481207
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA6" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( -979, -150 )
+rotation = 0.4163
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA7" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( -795, -73 )
+rotation = 0.251452
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA8" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( -600, -22 )
+rotation = 0.201148
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA9" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( -404, 16 )
+rotation = 0.228488
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA10" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( -208, 60 )
+rotation = 0.284822
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA11" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( -15, 115 )
+rotation = 0.284822
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA12" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( 181, 170 )
+rotation = 0.871084
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA13" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( 311, 320 )
+rotation = 0.84618
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA14" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( 446, 470 )
+rotation = 0.84618
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA15" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( 577, 615 )
+rotation = 2.63892
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA16" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( 403, 709 )
+rotation = 2.71174
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA17" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( 226, 791 )
+rotation = 3.09603
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA18" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( 24, 802 )
+rotation = 3.09603
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA19" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( -177, 812 )
+rotation = 3.33287
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA20" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( -373, 778 )
+rotation = 3.57431
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA21" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( -551, 696 )
+rotation = 3.86308
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA22" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( -697, 568 )
+rotation = 4.13734
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA23" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( -806, 406 )
+rotation = 6.88983
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA24" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( -642, 518 )
+rotation = 6.76643
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA25" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( -466, 609 )
+rotation = 6.76643
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA26" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( -288, 700 )
+rotation = 6.76643
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA27" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( -113, 789 )
+rotation = 7.11386
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA28" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( 23, 938 )
+rotation = 7.65893
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA29" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( 63, 1132 )
+rotation = 7.82669
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA30" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( 71, 1330 )
+rotation = 7.8209
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA31" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( 80.9999, 1529 )
+rotation = 7.09051
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA32" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( 217, 1670 )
+rotation = 5.68801
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA33" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( 382, 1557 )
+rotation = 4.54028
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA34" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( 343, 1357 )
+rotation = 3.4877
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA35" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( 156, 1292 )
+rotation = 3.22777
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA36" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( -43, 1276 )
+rotation = 3.15755
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA37" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( -241, 1273 )
+rotation = 3.17386
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA38" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( -434, 1267 )
+rotation = 3.17386
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA39" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( -631, 1260 )
+rotation = 2.48457
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA40" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( -782, 1376 )
+rotation = 2.6215
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA41" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( -949, 1473 )
+rotation = 2.6215
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA42" type="AnimatedSprite" parent="Strand4"]
+position = Vector2( -1122, 1570 )
+rotation = 2.6215
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="Strand3" type="Path2D" parent="."]
+position = Vector2( -537, -204 )
+curve = SubResource( 3 )
+
+[node name="DNA" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( -1728, -799 )
+rotation = 0.774989
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA2" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( -1583, -658 )
+rotation = 0.808267
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA3" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( -1445, -518 )
+rotation = 0.808267
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA4" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( -1307, -374 )
+rotation = 0.73694
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA5" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( -1157, -242 )
+rotation = 0.481207
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA6" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( -979, -150 )
+rotation = 0.4163
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA7" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( -795, -73 )
+rotation = 0.251452
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA8" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( -600, -22 )
+rotation = 0.201148
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA9" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( -404, 16 )
+rotation = 0.228488
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA10" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( -208, 60 )
+rotation = 0.284822
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA11" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( -15, 115 )
+rotation = 0.284822
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA12" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( 181, 170 )
+rotation = 0.871084
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA13" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( 311, 320 )
+rotation = 0.84618
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA14" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( 446, 470 )
+rotation = 0.84618
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA15" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( 577, 615 )
+rotation = 2.63892
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA16" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( 403, 709 )
+rotation = 2.71174
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA17" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( 226, 791 )
+rotation = 3.09603
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA18" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( 24, 802 )
+rotation = 3.09603
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA19" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( -177, 812 )
+rotation = 3.33287
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA20" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( -373, 778 )
+rotation = 3.57431
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA21" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( -551, 696 )
+rotation = 3.86308
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA22" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( -697, 568 )
+rotation = 4.13734
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA23" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( -806, 406 )
+rotation = 6.88983
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA24" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( -642, 518 )
+rotation = 6.76643
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA25" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( -466, 609 )
+rotation = 6.76643
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA26" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( -288, 700 )
+rotation = 6.76643
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA27" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( -113, 789 )
+rotation = 7.11386
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA28" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( 23, 938 )
+rotation = 7.65893
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA29" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( 63, 1132 )
+rotation = 7.82669
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA30" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( 71, 1330 )
+rotation = 7.8209
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA31" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( 80.9999, 1529 )
+rotation = 7.09051
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA32" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( 217, 1670 )
+rotation = 5.68801
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA33" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( 382, 1557 )
+rotation = 4.54028
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA34" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( 343, 1357 )
+rotation = 3.4877
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA35" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( 156, 1292 )
+rotation = 3.22777
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA36" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( -43, 1276 )
+rotation = 3.15755
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA37" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( -241, 1273 )
+rotation = 3.17386
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA38" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( -434, 1267 )
+rotation = 3.17386
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA39" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( -631, 1260 )
+rotation = 2.48457
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA40" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( -782, 1376 )
+rotation = 2.6215
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA41" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( -949, 1473 )
+rotation = 2.6215
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA42" type="AnimatedSprite" parent="Strand3"]
+position = Vector2( -1122, 1570 )
+rotation = 2.6215
+frames = SubResource( 6 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="Strand2" type="Path2D" parent="."]
+position = Vector2( -537, -419 )
+curve = SubResource( 2 )
+
+[node name="DNA" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( -1105, -952 )
+rotation = -0.145577
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA2" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( -908, -981 )
+rotation = 0.211901
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA3" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( -712, -940 )
+rotation = 0.429129
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA4" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( -529, -855 )
+rotation = 0.515087
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA5" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( -357, -758 )
+rotation = 1.03482
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA6" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( -253, -587 )
+rotation = 0.937231
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA7" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( -132, -428 )
+rotation = 1.30422
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA8" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( -76, -235 )
+rotation = 1.18735
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA9" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( 1, -51 )
+rotation = 1.24585
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA10" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( 65, 139 )
+rotation = 1.25871
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA11" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( 127, 326 )
+rotation = 1.25871
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA12" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( 190, 518 )
+rotation = 1.25871
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA13" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( 225, 510 )
+rotation = 1.43901
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA14" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( 199, 313 )
+rotation = 1.43901
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA15" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( 173, 118 )
+rotation = 1.43901
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA16" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( 148, -78 )
+rotation = 1.43901
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA17" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( 153, -73 )
+rotation = -1.35643
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA18" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( 194, -267 )
+rotation = -1.23838
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA19" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( 257, -456 )
+rotation = -1.08085
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA20" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( 352, -633 )
+rotation = -1.08085
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA21" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( 446, -809 )
+rotation = -1.79501
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA22" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( 398, -1006 )
+rotation = -2.50074
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA23" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( 234, -1126 )
+rotation = -3.6704
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA24" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( 64.9999, -1024 )
+rotation = -4.86564
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA25" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( 99, -823 )
+rotation = -6.11514
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA26" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( 296, -791 )
+rotation = -6.38979
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA27" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( 492, -812 )
+rotation = -6.59607
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA28" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( 681, -875 )
+rotation = -6.90633
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA29" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( 843, -993 )
+rotation = -6.90633
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA30" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( 1005, -1109 )
+rotation = -6.62337
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA31" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( 1192, -1175 )
+rotation = -6.31757
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA32" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( 1391, -1184 )
+rotation = -6.31757
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA33" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( 1589, -1192 )
+rotation = -5.86252
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )
+
+[node name="DNA34" type="AnimatedSprite" parent="Strand2"]
+position = Vector2( 1773, -1111 )
+rotation = -5.86252
+frames = SubResource( 5 )
+animation = "normal"
+offset = Vector2( 100, 0 )

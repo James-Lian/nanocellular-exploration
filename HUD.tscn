@@ -1,0 +1,167 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Panel Nine-Patch1.png" type="Texture" id=1]
+[ext_resource path="res://HUD.gd" type="Script" id=2]
+[ext_resource path="res://Fonts/071MKBBL.TTF" type="DynamicFontData" id=3]
+[ext_resource path="res://GUI/Scan Icon.png" type="Texture" id=4]
+[ext_resource path="res://Outline.tres" type="Shader" id=5]
+[ext_resource path="res://Fonts/RobotoCondensed-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Minimap.tscn" type="PackedScene" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 5 )
+shader_param/outline_width = 0.0
+shader_param/outline_color = null
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 6 )
+
+[node name="HUD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Top" type="NinePatchRect" parent="."]
+modulate = Color( 1, 1, 1, 0.8 )
+anchor_left = 0.0927734
+anchor_top = -0.221667
+anchor_right = 0.730469
+anchor_bottom = 0.178333
+texture = ExtResource( 1 )
+patch_margin_left = 100
+patch_margin_top = 100
+patch_margin_right = 100
+patch_margin_bottom = 100
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Pause" type="NinePatchRect" parent="."]
+modulate = Color( 1, 1, 1, 0.8 )
+anchor_left = -0.102539
+anchor_top = -0.173333
+anchor_right = 0.0742188
+anchor_bottom = 0.104167
+margin_right = 19.0
+margin_bottom = 33.5
+texture = ExtResource( 1 )
+patch_margin_left = 100
+patch_margin_top = 100
+patch_margin_right = 100
+patch_margin_bottom = 100
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Minimap" parent="." instance=ExtResource( 7 )]
+position = Vector2( 910, 115 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_left = 0.115234
+anchor_top = 0.0166667
+anchor_right = 0.708008
+anchor_bottom = 0.14
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="MarginContainer"]
+margin_right = 607.0
+margin_bottom = 73.0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "You have just landed in a cell."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="MarginContainer"]
+visible = false
+margin_left = 565.0
+margin_top = 53.0
+margin_right = 607.0
+margin_bottom = 73.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Next"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+modulate = Color( 1, 1, 1, 0.8 )
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -100.0
+margin_right = 100.0
+margin_bottom = -0.000183105
+texture = ExtResource( 1 )
+patch_margin_left = 50
+patch_margin_top = 50
+patch_margin_right = 50
+patch_margin_bottom = 50
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureButton" type="TextureButton" parent="NinePatchRect/MarginContainer"]
+material = SubResource( 2 )
+margin_right = 60.0
+margin_bottom = 60.0
+texture_normal = ExtResource( 4 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Popup" type="NinePatchRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.355957
+anchor_top = 0.416667
+anchor_right = 0.644043
+anchor_bottom = 0.583333
+texture = ExtResource( 1 )
+patch_margin_left = 50
+patch_margin_top = 50
+patch_margin_right = 50
+patch_margin_bottom = 50
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="Popup"]
+anchor_left = 0.0728814
+anchor_top = 0.04
+anchor_right = 0.927119
+anchor_bottom = 0.96
+custom_fonts/font = SubResource( 3 )
+text = "Scan Mode Activated"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Tween" type="Tween" parent="."]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=1]
+
+[node name="GUI" type="CanvasLayer"]
+
+[node name="HUD" parent="." instance=ExtResource( 1 )]
+visible = false
+mouse_filter = 2
+
+[editable path="HUD"]
