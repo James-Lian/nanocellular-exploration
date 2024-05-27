@@ -11,5 +11,7 @@ Over the course of 2 months, the project underwent several different phases:
 - Design phase, painting all game art via a graphical tablet on Krita
 - Development phase, programming and designing all game logic on Godot
 
+![alt text](https://github.com/James-Lian/nanocellular-exploration/blob/main/cover.png?raw=true)
+
 ## Credit
 This project (including all art and code) was created by James Lian. 
